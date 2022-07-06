@@ -1,7 +1,7 @@
 import SearchResult from "./SearchResult";
 import { useState, useEffect } from "react";
 
-const SearchForm = () => {
+const Search = () => {
   const [city, setCity] = useState("Toronto");
   const [error, setError] = useState(null);
   const [items, setItems] = useState([]);
@@ -58,4 +58,4 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+export default Search;
