@@ -29,7 +29,7 @@ const Search = () => {
   };
 
   const FormatTemp = (temp) => {
-    return Math.round(temp*10)/10 + "°C";
+    return Math.round(temp) + "°C";
   };
 
   const FormatPressure = (pressure) => {
