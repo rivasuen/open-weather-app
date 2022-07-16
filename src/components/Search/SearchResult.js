@@ -38,6 +38,9 @@ const SearchResult = (props) => {
               <SearchResultItem item={["Visibility", items.visibility]} />
               <SearchResultItem item={["Wind speed", items.wind.speed]} />
               <SearchResultItem item={["Wind direction", items.wind.deg]} />
+              {items.main.sea_level && <SearchResultItem item={["Atmospheric pressure on the sea level", items.main.sea_level]} />}
+              {items.main.grnd_level && <SearchResultItem item={["Atmospheric pressure on the ground level", items.main.grnd_level]} />}
+              {!items.main.sea_level && !items.main.grnd_level && <SearchResultItem item={["Atmospheric pressure", items.main.pressure]} />}
               {items.clouds && <SearchResultItem item={["Cloudiness", items.clouds.all]} />}
               {items.rain && <SearchResultItem item={["Rain volume for the last 1 hour", items.rain.rain["1h"]]} />}
               {items.rain && <SearchResultItem item={["Rain volume for the last 3 hour", items.rain.rain["3h"]]} />}

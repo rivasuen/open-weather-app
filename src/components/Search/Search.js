@@ -15,8 +15,12 @@ const Search = () => {
     return Math.round((distance / 1000) * 10) / 10 + " km";
   };
 
-  const FormatDateTime = (timestamp, type) => {
-    const new_date = new Date(timestamp * 1000);
+  const FormatDateTime = (timestamp, timezone, type) => {
+    // Adjust timezone
+    const currentLocalDate = new Date();
+    timezone = currentLocalDate.getTimezoneOffset() * 60 + timezone;
+
+    const new_date = new Date((timestamp + timezone) * 1000);
     const date = new_date.toLocaleDateString([], { year: "numeric", month: "short", day: "numeric" });
     const time = new_date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     if (type == "date") {
@@ -24,7 +28,7 @@ const Search = () => {
     } else if (type == "time") {
       return time;
     } else {
-      return date + " " + time;
+      return date + ", " + time;
     }
   };
 
@@ -61,9 +65,9 @@ const Search = () => {
             result.main.feels_like = FormatTemp(result.main.feels_like);
             result.main.temp_min = FormatTemp(result.main.temp_min);
             result.main.temp_max = FormatTemp(result.main.temp_max);
-            result.dt = FormatDateTime(result.dt, "datetime");
-            result.sys.sunrise = FormatDateTime(result.sys.sunrise, "time");
-            result.sys.sunset = FormatDateTime(result.sys.sunset, "time");
+            result.dt = FormatDateTime(result.dt, result.timezone, "datetime");
+            result.sys.sunrise = FormatDateTime(result.sys.sunrise, result.timezone, "time");
+            result.sys.sunset = FormatDateTime(result.sys.sunset, result.timezone, "time");
             result.visibility = ConvertM2KM(result.visibility);
             result.wind.speed = FormatSpeed(result.wind.speed);
             result.main.humidity = FormatPercentage(result.main.humidity);
