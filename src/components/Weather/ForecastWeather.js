@@ -8,7 +8,7 @@ const ForecastWeather = (props) => {
   return (
     <div className="forecast-weather">
       {data.slice(0, 10).map((item, idx) => (
-        <div className="detail-row">
+        <div className="detail-row" key={idx}>
           <span className="datetime">{Formatter.FormatDateTime(item.dt, timezone, "datetime")}</span>
           <span className="temperature-range">
             <img src={Formatter.FormatWeatherIcon(item.weather[0].icon)} />
