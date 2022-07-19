@@ -11,7 +11,7 @@ const ForecastWeather = (props) => {
         <div className="detail-row" key={idx}>
           <span className="datetime">{Formatter.FormatDateTime(item.dt, timezone, "datetime")}</span>
           <span className="temperature-range">
-            <img src={Formatter.FormatWeatherIcon(item.weather[0].icon)} />
+            <img src={Formatter.FormatWeatherIcon(item.weather[0].icon)} alt={Formatter.FormatDescription(item.weather[0].description)} />
             {Formatter.FormatTemp(item.main.temp)}
           </span>
           <span className="description">{Formatter.FormatDescription(item.weather[0].description)}</span>

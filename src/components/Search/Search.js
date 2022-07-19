@@ -12,14 +12,14 @@ const Search = ({ onSearchChange }) => {
         <form onSubmit={SubmitHandler}>
           <div className="search-group">
             <input
-              className=""
+              aria-label="city"
               type="text"
               id="city"
               name="city"
               placeholder="Weather in your city(e.g. Toronto)"
               autoComplete="off"
             />
-            <button className="">GO</button>
+            <button className="" aria-label="search">GO</button>
           </div>
         </form>
       </nav>

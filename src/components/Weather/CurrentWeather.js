@@ -13,7 +13,11 @@ const CurrentWeather = (props) => {
         </div>
         {Formatter.FormatDescription(items.weather[0].description)}
         <div className="summary-row">
-          <img src={Formatter.FormatWeatherIcon(items.weather[0].icon)} className="weather-icon"></img>
+          <img
+            src={Formatter.FormatWeatherIcon(items.weather[0].icon)}
+            className="weather-icon"
+            alt={Formatter.FormatDescription(items.weather[0].description)}
+          />
           <div>
             <div className="temperature">{Formatter.FormatTemp(items.main.temp)}</div>
             <div className="temperature-range">

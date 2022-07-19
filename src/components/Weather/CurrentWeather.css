@@ -40,9 +40,10 @@
 }
 
 .weather-detail {
+  padding: 10px 0px;
   width: 100%;
-  font-size: 10pt;
-  color: #555;
+  font-size: 12pt;
+  color: #333;
   border-bottom: 1px solid #25528f;
 }
 
