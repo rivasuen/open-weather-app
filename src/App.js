@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="">
       <div className="decorate-bar top"></div>
-      <div className="container">
+      <div className="container" role="main">
         <Search onSearchChange={handleOnSearchChange} />
         {error && <div className="text-danger text-center">Failed to fetch</div>}
         {weather && weather.cod != 200 && <div className="text-danger text-center">Weather: {weather.message}</div>}

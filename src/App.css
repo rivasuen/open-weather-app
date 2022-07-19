@@ -6,10 +6,6 @@
   height: 20px;
   background: #25528f;
 }
-.decorate-bar.bottom {
-  position: fixed;
-  bottom: 0px;
-}
 
 @media only screen and (max-width: 768px) {
   .container {
