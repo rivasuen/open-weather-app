@@ -54,24 +54,24 @@ const CurrentWeather = (props) => {
         {items.clouds && (
           <CurrentWeatherDetailRow item={["Cloudiness", Formatter.FormatPercentage(items.clouds.all)]} />
         )}
-        {items.rain && (
+        {items.rain && items.rain["1h"] && (
           <CurrentWeatherDetailRow
-            item={["Rain volume for the last 1 hour", Formatter.FormatVolume(items.rain.rain["1h"])]}
+            item={["Rain volume for the last 1 hour", Formatter.FormatVolume(items.rain["1h"])]}
           />
         )}
-        {items.rain && (
+        {items.rain && items.rain["3h"] && (
           <CurrentWeatherDetailRow
-            item={["Rain volume for the last 3 hour", Formatter.FormatVolume(items.rain.rain["3h"])]}
+            item={["Rain volume for the last 3 hour", Formatter.FormatVolume(items.rain["3h"])]}
           />
         )}
-        {items.snow && (
+        {items.snow && items.rain["1h"] && (
           <CurrentWeatherDetailRow
-            item={["Snow volume for the last 1 hour", Formatter.FormatVolume(items.snow.snow["1h"])]}
+            item={["Snow volume for the last 1 hour", Formatter.FormatVolume(items.snow["1h"])]}
           />
         )}
-        {items.snow && (
+        {items.snow && items.rain["3h"] && (
           <CurrentWeatherDetailRow
-            item={["Snow volume for the last 3 hour", Formatter.FormatVolume(items.snow.snow["3h"])]}
+            item={["Snow volume for the last 3 hour", Formatter.FormatVolume(items.snow["3h"])]}
           />
         )}
       </div>
